@@ -133,3 +133,18 @@ function customtwo_category_transient_flusher() {
 }
 add_action( 'edit_category', 'customtwo_category_transient_flusher' );
 add_action( 'save_post',     'customtwo_category_transient_flusher' );
+
+/**
+ * Post navigation (previous / next)
+ */
+
+ function customtwo_post_navigaion() {
+	 the_post_navigation( array(
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'customtwo' ) . '</span> ' .
+		'<span class="screen-reader-text">' . __( 'Next post:', 'customtwo' ) . '</span> ' .
+		'<span class="post-title">%title</span>',
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'customtwo' ) . '</span> ' .
+		'<span class="screen-reader-text">' . __( 'Previous post:', 'customtwo' ) . '</span> ' .
+		'<span class="post-title">%title</span>',
+	));
+ }
